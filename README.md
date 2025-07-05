@@ -1,1 +1,1 @@
-#This project contains a musician's website meant as promotion/exhibition of my work as a professional flutist.
+This project contains a promotional/exhibitional website of my work as a professional flutist.
