@@ -1,0 +1,6 @@
+djenv
+venv
+__pycache__/
+*.pyc
+.env
+/media/cache/
