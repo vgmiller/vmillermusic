@@ -22,10 +22,10 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'vgmiller.pythonanywhere.com',
-    'vmillermusic.com',
-    'vmillerflute.com',
-    'vanessaflute.com',
-    'vanessapiccolo.com',
+    '.vmillermusic.com',
+    '.vmillerflute.com',
+    '.vanessaflute.com',
+    '.vanessapiccolo.com',
 ]
 
 
