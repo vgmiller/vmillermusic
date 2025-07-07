@@ -1,15 +1,15 @@
 {% extends "music_base.html" %}
 {% load thumbnail %}
 {% block page_content %}
-<div class="flexContainer">
-	<div class="flexItem">
+<div class="flexContainer newsPage">
+	<div class="flexItem newsPageText">
 	<p class="nextToPicture">
 	The following performances are currently scheduled:
 	</p>
-	<ul>
+	<ul class="concertList">
 	{% for c in concerts %}
 	<li>
-		<b>{{ c.date }}, {{ c.time }} - <a href="{{ c.ensemble.orgLink }}">{{ c.ensemble.name }}</a></b> at <a href="{{ c.venue.mapLink}}">{{ c.venue.name }}</a>
+		<b>{{ c.date }}, {{ c.time }} <a href="{{ c.ensemble.orgLink }}">{{ c.ensemble.name }}</a></b> at <a href="{{ c.venue.mapLink}}">{{ c.venue.name }}</a>
 		{% if c.ticketLink %}
 		<b><a href="{{ c.ticketLink}}">(tickets)</a></b>
 		{% endif %}
@@ -31,7 +31,7 @@
 	<br/>
 	</p>
 	</div>
-	<div class="flexItem">
+	<div class="flexItem newsPageImage">
 	{% with "music/flute_frontAngled.jpg" as imgPath %}
 	<img src="{% thumbnail imgPath '1200' as im %}{{ im.url }}{% endthumbnail %}"
 	srcset="
