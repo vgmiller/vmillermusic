@@ -133,3 +133,11 @@ IMAGE_BREAKPOINTS = ["200", "544", "768", "1200", "1920"]
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# https://us-east-1.console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials
+EMAIL_BACKEND = config("EMAIL_BACKEND")
+AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
+AWS_SES_REGION_NAME = config("AWS_SES_REGION_NAME")
+AWS_SES_REGION_ENDPOINT = config("AWS_SES_REGION_ENDPOINT")
+DEFAULT_FROM_EMAIL = SERVER_EMAIL = EMAIL_HOST_USER = config("DEFAULT_FROM_EMAIL")
