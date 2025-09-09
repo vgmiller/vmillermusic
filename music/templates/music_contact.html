@@ -1,40 +1,84 @@
 {% extends "music_base.html" %}
 {% load thumbnail %}
+
 {% block page_content %}
-<div class="flexContainer" style="flex-wrap:wrap">
-	<div class="flexItem">
-	{% with "music/picc_sideSmile.JPG" as imgPath %}
-	<img src="{% thumbnail imgPath '1200' as im %}{{ im.url }}{% endthumbnail %}"
-	srcset="
-		{% for size in breakpoints %}
-		{% thumbnail imgPath size as thumb %}
-			{% if thumb and thumb.url and thumb.x %}
-			{{ thumb.url }} {{ thumb.x }}w,
-			{% endif %}
-		{% endthumbnail %}
-		{% endfor %}
-	"
-	class="halfPagePicture"/>
-	{% endwith %}
-	</div>
-	<div class="flexItem contactForm">
-	<h2>Contact Vanessa</h2>
-	{% if messages %}
-	<ul class="messages">
-	    {% for message in messages %}
-	    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-	    {% endfor %}
-	</ul>
-	{% endif %}
-	<form method="post">
-	    {% csrf_token %}
-	    <div class="form-group">
-		{{ form }}
-		</div>
-	    <div class="form-actions">
-	      <button class="contactSubmit" type="submit">Send Message</button>
-	    </div>
-	</form>
-	</div>
+<div class="flexContainer">
+    <div class="flexItem" style="margin: 0 auto">
+        {% with "music/picc_sideSmile.JPG" as imgPath %}
+        <img src="{% thumbnail imgPath '1200' as im %}{{ im.url }}{% endthumbnail %}"
+             srcset="
+                {% for size in breakpoints %}
+                {% thumbnail imgPath size as thumb %}
+                    {% if thumb and thumb.url and thumb.x %}
+                    {{ thumb.url }} {{ thumb.x }}w,
+                    {% endif %}
+                {% endthumbnail %}
+                {% endfor %}
+             "
+             class="halfPagePicture"
+             alt="Vanessa Miller with piccolo"
+             loading="lazy"/>
+        {% endwith %}
+    </div>
+    
+    <div class="flexItem contactForm">
+        <h2>Get In Touch</h2>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">
+            We'd love to hear from you! Whether you're interested in booking a performance, 
+            collaborating on a project, or just saying hello.
+        </p>
+        
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        
+        <form method="post" novalidate>
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="{{ form.subject.id_for_label }}" class="sr-only">Subject</label>
+                <input type="text" 
+                       name="{{ form.subject.name }}" 
+                       id="{{ form.subject.id_for_label }}"
+                       class="formField" 
+                       placeholder="Subject *"
+                       value="{{ form.subject.value|default:'' }}"
+                       required>
+                {{ form.subject.errors }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.from_email.id_for_label }}" class="sr-only">Email Address</label>
+                <input type="email" 
+                       name="{{ form.from_email.name }}" 
+                       id="{{ form.from_email.id_for_label }}"
+                       class="formField" 
+                       placeholder="Your Email Address *"
+                       value="{{ form.from_email.value|default:'' }}"
+                       required>
+                {{ form.from_email.errors }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.message.id_for_label }}" class="sr-only">Message</label>
+                <textarea name="{{ form.message.name }}" 
+                          id="{{ form.message.id_for_label }}"
+                          class="formField formFieldMessage" 
+                          placeholder="Your Message *"
+                          required>{{ form.message.value|default:'' }}</textarea>
+                {{ form.message.errors }}
+            </div>
+            
+            <div class="form-actions" style="text-align: center;">
+                <button class="contactSubmit" type="submit">
+                    Send Message
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

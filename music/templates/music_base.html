@@ -1,56 +1,106 @@
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="/static/base.css">
-<link rel="shortcut icon" href="/static/favicon.ico"/>
-<head><title>Vanessa Miller</title></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanessa Miller - Professional Flutist & Piccoloist</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/base.css">
+    <link rel="shortcut icon" href="/static/favicon.ico"/>
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Vanessa Miller is a professional flutist and piccoloist based in New York City, performing with orchestras and ensembles across the eastern United States.">
+</head>
 <body>
+
 <script type="text/javascript">
 function navHighlight() {
     var url = location.href.split('/');
-    var loc = url[url.length -1];
+    var loc = url[url.length - 1];
     var home = "music_index";
+    
     Array.from(document.getElementsByClassName("navItem")).forEach(function(item){
-    var path = item.href.split('/');
-    var page = path[path.length -1];
-    if (page == loc || page == home && loc == '') {
-        item.className += ' on';
-	}
+        var path = item.href.split('/');
+        var page = path[path.length - 1];
+        if (page == loc || (page == home && loc == '')) {
+            item.className += ' on';
+        }
     });
 }
-window.onload = function(){
-	navHighlight();
-};
+
+// Add smooth scroll behavior
+document.addEventListener('DOMContentLoaded', function() {
+    navHighlight();
+    
+    // Add fade-in animation to main content
+    const mainContent = document.querySelector('.siteContainer');
+    if (mainContent) {
+        mainContent.classList.add('fadeInUp');
+    }
+    
+    // Add loading states for images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        if (!img.complete) {
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.5s ease-in-out';
+            img.onload = function() {
+                this.style.opacity = '1';
+            };
+        }
+    });
+});
 </script>
+
 <div class="siteContainer">
-	{% block top_content %} 
-	<h1 style="font-family:Didot,Trebuchet MS, Tahoma !important;"><a href="/" style="color:inherit">VANESSA MILLER</a></h1>
-	<div class="navBar">
-		<span>
-		<a class="navItem" href="/about">About</a>
-		<a class="navItem" href="/recordings">Listen</a>
-		<!--<a class="navItem" href="/repertoire">Repertoire</a>
-		<a class="navItem" href="/samplePrograms">Sample Programs</a>-->
-		<a class="navItem" href="/news">Upcoming</a>
-		<a class="navItem" href="/contact">Contact</a>
-		</span>
-		<hr color="lightGrey" style="margin:10px 10px 10px 0;">
-	</div>
-	{% endblock %}
-	{% block page_content %} {% endblock %}
-	{% block bottom_content %} 
-	<div class="bottomSocialMediaIcons">
-		<div class="iconFooterInner">
-			<a target="_blank" href="https://www.linkedin.com/in/vanessagmiller/">
-			 <img class="icon" alt="LinkedIn" src="/static/icons/linkedin.png"
-			 width=25" height="25">
-		      </a>
-			<a target="_blank" href="https://soundcloud.com/vmillermusic">
-			 <img class="icon" alt="SoundCloud" src="/static/icons/soundcloud.png"
-			 width=25" height="25">
-		      </a>
-		</div>
-	</div>
-	{% endblock %}
-</div> <!-- siteContainer -->
+    {% block top_content %} 
+    <header class="header">
+        <h1>
+            <a href="/" style="color:inherit; text-decoration:none;">
+                VANESSA MILLER
+            </a>
+        </h1>
+        <nav class="navBar">
+            <span>
+                <a class="navItem" href="/about" aria-label="About Vanessa Miller">About</a>
+                <a class="navItem" href="/recordings" aria-label="Listen to recordings">Listen</a>
+                <a class="navItem" href="/news" aria-label="Upcoming concerts">Upcoming</a>
+                <a class="navItem" href="/contact" aria-label="Contact Vanessa Miller">Contact</a>
+            </span>
+            <hr>
+        </nav>
+    </header>
+    {% endblock %}
+    
+    <main>
+        {% block page_content %} {% endblock %}
+    </main>
+    
+    {% block bottom_content %} 
+    <footer class="bottomSocialMediaIcons">
+        <div class="iconFooterInner">
+            <a target="_blank" href="https://www.linkedin.com/in/vanessagmiller/" 
+               aria-label="Vanessa Miller on LinkedIn" rel="noopener">
+                <img class="icon" alt="LinkedIn" src="/static/icons/linkedin.png" 
+                     width="25" height="25" loading="lazy">
+            </a>
+            <a target="_blank" href="https://soundcloud.com/vmillermusic" 
+               aria-label="Vanessa Miller on SoundCloud" rel="noopener">
+                <img class="icon" alt="SoundCloud" src="/static/icons/soundcloud.png" 
+                     width="25" height="25" loading="lazy">
+            </a>
+        </div>
+    </footer>
+    {% endblock %}
+</div>
+
 </body>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</html>

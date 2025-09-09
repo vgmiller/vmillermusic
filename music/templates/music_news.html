@@ -1,50 +1,91 @@
 {% extends "music_base.html" %}
 {% load thumbnail %}
+
 {% block page_content %}
 <div class="flexContainer newsPage">
-	<div class="flexItem newsPageText">
-	<p class="nextToPicture">
-	The following performances are currently scheduled:
-	</p>
-	<ul class="concertList">
-	{% for c in concerts %}
-	<li>
-		<b>{{ c.date }}, {{ c.time }} <a href="{{ c.ensemble.orgLink }}">{{ c.ensemble.name }}</a></b> at <a href="{{ c.venue.mapLink}}">{{ c.venue.name }}</a>
-		{% if c.ticketLink %}
-		<b><a href="{{ c.ticketLink}}">(tickets)</a></b>
-		{% endif %}
-	</li>
-	{% endfor %}
-	</ul>
-	<p class="nextToPicture" style="font-size:x-small">
-	If no ticket link is included, then concert is general admission with a suggested donation at the door.<br/>
-	</p>
-
-	<p class="nextToPicture">
-	If you'd like to be emailed about future events/concert reminders,<br/>
-	please <a href="http://eepurl.com/iolM3c">sign up</a> for the mailing list. Emails are no more than once-a-month, and usually less than that.<br/>
-	<br/>
-	</p>
-
-	<p class="nextToPicture">
-	Vanessa is fully vaccinated and is available to perform in all venues.<br/>
-	<br/>
-	</p>
-	</div>
-	<div class="flexItem newsPageImage">
-	{% with "music/flute_frontAngled.jpg" as imgPath %}
-	<img src="{% thumbnail imgPath '1200' as im %}{{ im.url }}{% endthumbnail %}"
-	srcset="
-		{% for size in breakpoints %}
-		{% thumbnail imgPath size as thumb %}
-			{% if thumb and thumb.url and thumb.x %}
-			{{ thumb.url }} {{ thumb.x }}w,
-			{% endif %}
-		{% endthumbnail %}
-		{% endfor %}
-	"
-	class="halfPagePicture"/>
-	{% endwith %}
-	</div>
+    <div class="flexItem newsPageText"> 
+		<h2 style="text-align: center; margin: 0;">Upcoming Performances</h2>       
+        {% if concerts %}
+        <div class="concerts-container">
+            {% for c in concerts %}
+            <div class="concert-card">
+                <div class="concert-date">
+                    <div class="date-day">{{ c.date|date:"d" }}</div>
+                    <div class="date-month">{{ c.date|date:"M" }}</div>
+                    <div class="date-year">{{ c.date|date:"Y" }}</div>
+					<div class="concert-time">{{ c.time|date:"g:i A" }}</div>
+                </div>
+                <div class="concert-details">
+                    <div class="concert-ensemble">
+                        <a href="{{ c.ensemble.orgLink }}" target="_blank" rel="noopener">
+                            {{ c.ensemble.name }}
+                        </a>
+                    </div>
+                    <div class="concert-venue">
+                        <a href="{{ c.venue.mapLink }}" target="_blank" rel="noopener">{{ c.venue.name }}</a>
+                    </div>
+                    {% if c.ticketLink %}
+                    <div class="concert-tickets">
+                        <a href="{{ c.ticketLink }}" target="_blank" rel="noopener" class="ticket-link">
+                            Get Tickets
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div style="text-align: center; padding: 3rem; background: var(--light-purple); border-radius: var(--border-radius); margin: 2rem 0;">
+            <h3 style="color: var(--dark-purple); margin-bottom: 1rem;">No Upcoming Concerts</h3>
+            <p style="color: var(--text-light);">Check back soon for new performance dates!</p>
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="flexItem newsPageImage">
+        {% with "music/flute_frontAngled.jpg" as imgPath %}
+        <img src="{% thumbnail imgPath '1200' as im %}{{ im.url }}{% endthumbnail %}"
+             srcset="
+                {% for size in breakpoints %}
+                {% thumbnail imgPath size as thumb %}
+                    {% if thumb and thumb.url and thumb.x %}
+                    {{ thumb.url }} {{ thumb.x }}w,
+                    {% endif %}
+                {% endthumbnail %}
+                {% endfor %}
+             "
+             class="halfPagePicture"
+             alt="Vanessa Miller with flute"
+             loading="lazy"/>
+        {% endwith %}
+		<div class="info-cards">
+            <div class="info-card">
+                <h3>Stay Updated</h3>
+                <p>
+                    Get notified about future concerts and events! 
+                    <a href="http://eepurl.com/iolM3c" target="_blank" rel="noopener" class="signup-link">
+                        Join the mailing list
+                    </a>
+                </p>
+                <small>Emails sent monthly (or less frequently)</small>
+            </div>
+            
+            <div class="info-card">
+                <h3>Performance Ready</h3>
+                <p>
+                    Vanessa is fully vaccinated and available to perform in all venues. 
+                </p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Ticket Information</h3>
+                <p>
+                    Concerts without ticket links are typically general admission 
+                    with suggested donations at the door.
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

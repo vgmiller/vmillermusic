@@ -1,33 +1,80 @@
 {% extends "music_base.html" %}
 {% load thumbnail %}
+
 {% block page_content %}
 <div class="flexContainer">
-	<div class="flexItem">
-	<p class="nextToPicture">
-	Vanessa Miller currently resides in New York City, where she plays with the New York Repertory Orchestra, the Brooklyn Wind Symphony, Press Start Orchestra, and the Riverside Orchestra. She is also a tenure-track member of the Allentown Symphony Orchestra. In addition, she plays regularly with the Chatham Wind Trio.<br/>
-	<br/>
-	She has previously served as Piccolo and Flute with the La Jolla Symphony in San Diego, California. She has also appeared with the Peabody Symphony Orchestra, Occasional Symphony, Peabody Wind Ensemble, and Peabody Chamber Winds, as well as being a soloist on recitals and in performances around the eastern United States. Large ensemble music and pit orchestra are her musical passions.<br/>
-	<br/>
-	Vanessa received her Masters of Music in Piccolo Performance from Peabody Conservatory, and her Bachelors of Music from the Blair School of Music at Vanderbilt University, where she double majored in Flute Performance and Computer Science. She also studied in Trevor Wye's Flute Studio. Her major teachers include Laurie Sokoloff, Jane Kirchner, Trevor Wye, and Norma Rogers. She has also performed in masterclasses for Julien Beaudiment, Bradley Garner, Fergus McWilliam, and Justin Berrie.<br/>
-	<br/>
-	<a href="/static/music/VMillerMusicResume.pdf" target="_blank">Click here for a resume</a>
-	</p>
-	</div>
-	<div class="flexItem">
-	{% with "music/picc_straightSmile.JPG" as imgPath %}
-	<img src="{% thumbnail imgPath '1200' as im %}{{ im.url }}{% endthumbnail %}"
-		srcset="
-			{% for size in breakpoints %}
-			{% thumbnail imgPath size as thumb %}
-				{% if thumb and thumb.url and thumb.x %}
-				{{ thumb.url }} {{ thumb.x }}w,
-				{% endif %}
-			{% endthumbnail %}
-			{% endfor %}
-		"
-		class="halfPagePicture"
-	/>
-	{% endwith %}
-	</div>
+    <div class="flexItem">
+        <div class="nextToPicture">
+            <p>
+                <strong>Vanessa Miller</strong> currently resides in New York City, where she plays with the 
+                <strong>New York Repertory Orchestra</strong>, the <strong>Brooklyn Wind Symphony</strong>, 
+                <strong>Press Start Orchestra</strong>, and the <strong>Riverside Orchestra</strong>. 
+                She is also a tenure-track member of the <strong>Allentown Symphony Orchestra</strong>. 
+                In addition, she plays regularly with the <strong>Chatham Wind Trio</strong>.
+            </p>
+            
+            <p>
+                She has previously served as Piccolo and Flute with the <strong>La Jolla Symphony</strong> 
+                in San Diego, California. She has also appeared with the Peabody Symphony Orchestra, 
+                Occasional Symphony, Peabody Wind Ensemble, and Peabody Chamber Winds, as well as being 
+                a soloist on recitals and in performances around the eastern United States. 
+                <em>Large ensemble music and pit orchestra are her musical passions.</em>
+            </p>
+            
+            <p>
+                Vanessa received her <strong>Masters of Music in Piccolo Performance</strong> from 
+                <strong>Peabody Conservatory</strong>, and her <strong>Bachelors of Music</strong> from 
+                the <strong>Blair School of Music at Vanderbilt University</strong>, where she double 
+                majored in Flute Performance and Computer Science. She also studied in 
+                <strong>Trevor Wye's Flute Studio</strong>.
+            </p>
+            
+            <p>
+                Her major teachers include <strong>Laurie Sokoloff</strong>, <strong>Jane Kirchner</strong>, 
+                <strong>Trevor Wye</strong>, and <strong>Norma Rogers</strong>. She has also performed in 
+                masterclasses for <strong>Julien Beaudiment</strong>, <strong>Bradley Garner</strong>, 
+                <strong>Fergus McWilliam</strong>, and <strong>Justin Berrie</strong>.
+            </p>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/static/music/VMillerMusicResume.pdf" 
+                   target="_blank" 
+                   rel="noopener"
+                   style="display: inline-block; 
+                          background: linear-gradient(135deg, var(--primary-purple), var(--accent-purple));
+                          color: white;
+                          padding: 1rem 2rem;
+                          border-radius: 50px;
+                          text-decoration: none;
+                          font-weight: 600;
+                          text-transform: uppercase;
+                          letter-spacing: 0.05em;
+                          box-shadow: 0 10px 30px var(--shadow-light);
+                          transition: var(--transition);"
+                   onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px var(--shadow-medium)'"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px var(--shadow-light)'">
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="flexItem" style="margin: 0 auto">
+        {% with "music/picc_straightSmile.JPG" as imgPath %}
+        <img src="{% thumbnail imgPath '1200' as im %}{{ im.url }}{% endthumbnail %}"
+             srcset="
+                {% for size in breakpoints %}
+                {% thumbnail imgPath size as thumb %}
+                    {% if thumb and thumb.url and thumb.x %}
+                    {{ thumb.url }} {{ thumb.x }}w,
+                    {% endif %}
+                {% endthumbnail %}
+                {% endfor %}
+             "
+             class="halfPagePicture"
+             alt="Vanessa Miller professional headshot with piccolo"
+             loading="lazy"/>
+        {% endwith %}
+    </div>
 </div>
 {% endblock %}

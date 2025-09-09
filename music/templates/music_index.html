@@ -1,19 +1,37 @@
 {% extends "music_base.html" %}
 {% load thumbnail %}
+
 {% block page_content %}
-	{% with "music/VMiller_Picc.jpg" as imgPath %}
-	<a href='recordings'><img src="{% thumbnail imgPath '1200' as im %}{{ im.url }}{% endthumbnail %}"
-	srcset="
-		{% for size in breakpoints %}
-		{% thumbnail imgPath size as thumb %}
-			{% if thumb and thumb.url and thumb.x %}
-			{{ thumb.url }} {{ thumb.x }}w,
-			{% endif %}
-		{% endthumbnail %}
-		{% endfor %}
-	"
-	alt="Vanessa Miller, Piccolo"
-	class="landingImage"/>
-	</a>
-	{% endwith %}
+<div class="landing-page">
+<!-- Hero Section -->
+<div class="hero-section">
+	<div class="hero-text">
+		<h2 class="hero-subtitle">Professional Flutist & Piccoloist</h2>
+		<p class="hero-description">
+			Based in New York City, performing with orchestras and ensembles 
+			across the United States
+		</p>
+	</div>
+	
+	<div class="hero-image">
+		{% with "music/VMiller_Picc.jpg" as imgPath %}
+		<a href='/recordings'>
+			<img src="{% thumbnail imgPath '1200' as im %}{{ im.url }}{% endthumbnail %}"
+				 srcset="
+					{% for size in breakpoints %}
+					{% thumbnail imgPath size as thumb %}
+						{% if thumb and thumb.url and thumb.x %}
+						{{ thumb.url }} {{ thumb.x }}w,
+						{% endif %}
+					{% endthumbnail %}
+					{% endfor %}
+				 "
+				 alt="Vanessa Miller, Professional Piccolo Player"
+				 class="landingImage"
+				 loading="priority"/>
+		</a>
+		{% endwith %}
+	</div>
+</div>
+</div>
 {% endblock %}

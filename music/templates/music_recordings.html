@@ -1,23 +1,95 @@
 {% extends "music_base.html" %}
+
 {% block page_content %}
-<div style="text-align:center">
-	Please enjoy the playlist below, powered by SoundCloud. All rights reserved.<br/>
-	More tracks are available <a href="https://soundcloud.com/vmillermusic/sets">here</a>.<br/>
-	<iframe class="soundcloudIframe" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/3806720&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-	<br/>
-</div>
-<div class="flexContainer youtube">
-	<div class="flexItem youtube">
-	<p class="youtube">Flute soloist with the La Jolla Symphony for the premiere of Q. Wang's <i>Between Clouds and Streams</i></p>
-	<iframe class="youtubeIframe" src="https://www.youtube.com/embed/7sE_uk2GNIE?start=474" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	</div>
-	<div class="flexItem youtube">
-	<p class="youtube">Feature piccolo with the La Jolla Symphony for Hannah Lash's <i>Eating Flowers</i></p>
-	<iframe class="youtubeIframe" src="https://www.youtube.com/embed/6c5LXZXs7n8?start=20" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	</div>
-	<div class="flexItem youtube">
-	<p class="youtube">Playing at Carnegie Hall with the Brooklyn Wind Symphony</p>
-	<iframe class="youtubeIframe" src="https://www.youtube.com/embed/yUPXMGvHxdk?start=3880" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	</div>
+<div class="recordings-page">
+    <!-- SoundCloud Section -->
+    <div class="media-section">
+        <div class="section-header">
+            <h3>Audio Recordings</h3>
+            <p>
+                Enjoy this curated playlist featuring recent performances. 
+                <a href="https://soundcloud.com/vmillermusic/sets" target="_blank" rel="noopener">
+                    Explore more tracks →
+                </a>
+            </p>
+        </div>
+        
+        <div class="soundcloud-container">
+            <iframe class="soundcloudIframe" 
+                    scrolling="no" 
+                    frameborder="no" 
+                    allow="autoplay" 
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/3806720&color=%238B5FBF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                    title="Vanessa Miller Music Playlist">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="media-section">
+        <div class="section-header">
+            <h3>Performance Videos</h3>
+            <p>Watch highlights from live performances with various ensembles</p>
+        </div>
+        
+        <div class="flexContainer youtube">
+            <div class="flexItem youtube">
+                <div class="video-info">
+                    <h4>Flute Soloist</h4>
+                    <p class="youtube">
+                        Performing with the <strong>La Jolla Symphony</strong> for the premiere of 
+                        Q. Wang's <em>"Between Clouds and Streams"</em>
+                    </p>
+                </div>
+                <div class="video-wrapper">
+                    <iframe class="youtubeIframe" 
+                            src="https://www.youtube.com/embed/7sE_uk2GNIE?start=474" 
+                            title="Vanessa Miller - Flute Solo with La Jolla Symphony" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="flexItem youtube">
+                <div class="video-info">
+                    <h4>Featured Piccolo</h4>
+                    <p class="youtube">
+                        Featured piccolo performance with the <strong>La Jolla Symphony</strong> 
+                        for Hannah Lash's <em>"Eating Flowers"</em>
+                    </p>
+                </div>
+                <div class="video-wrapper">
+                    <iframe class="youtubeIframe" 
+                            src="https://www.youtube.com/embed/6c5LXZXs7n8?start=20" 
+                            title="Vanessa Miller - Piccolo Feature with La Jolla Symphony" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="flexItem youtube">
+                <div class="video-info">
+                    <h4>Carnegie Hall Performance</h4>
+                    <p class="youtube">
+                        Performing at the iconic <strong>Carnegie Hall</strong> with the 
+                        <strong>Brooklyn Wind Symphony</strong>
+                    </p>
+                </div>
+                <div class="video-wrapper">
+                    <iframe class="youtubeIframe" 
+                            src="https://www.youtube.com/embed/yUPXMGvHxdk?start=3880" 
+                            title="Vanessa Miller - Carnegie Hall Performance" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
