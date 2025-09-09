@@ -40,26 +40,14 @@
                 <a href="/static/music/VMillerMusicResume.pdf" 
                    target="_blank" 
                    rel="noopener"
-                   style="display: inline-block; 
-                          background: linear-gradient(135deg, var(--primary-purple), var(--accent-purple));
-                          color: white;
-                          padding: 1rem 2rem;
-                          border-radius: 50px;
-                          text-decoration: none;
-                          font-weight: 600;
-                          text-transform: uppercase;
-                          letter-spacing: 0.05em;
-                          box-shadow: 0 10px 30px var(--shadow-light);
-                          transition: var(--transition);"
-                   onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px var(--shadow-medium)'"
-                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px var(--shadow-light)'">
+                   class="download-button">
                     Download Resume
                 </a>
             </div>
         </div>
     </div>
     
-    <div class="flexItem" style="margin: 0 auto">
+    <div class="flexItem">
         {% with "music/picc_straightSmile.JPG" as imgPath %}
         <img src="{% thumbnail imgPath '1200' as im %}{{ im.url }}{% endthumbnail %}"
              srcset="

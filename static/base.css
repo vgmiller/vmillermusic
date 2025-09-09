@@ -147,6 +147,26 @@ a:hover {
     text-underline-offset: 3px;
 }
 
+.download-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-purple));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    transition: var(--transition);
+}
+
+.download-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+    background: linear-gradient(135deg, var(--accent-purple), var(--dark-purple));
+}
+
 
 /* Buttons */
 
@@ -917,6 +937,23 @@ li.success {
     list-style: none;
 }
 
+.no-concerts-message {
+    text-align: center;
+    padding: 3rem;
+    background: var(--light-purple);
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+}
+
+.no-concerts-message h3 {
+    color: var(--dark-purple);
+    margin-bottom: 1rem;
+}
+
+.no-concerts-message p {
+    color: var(--text-light);
+}
+
 
 /* News Page Specific */
 
@@ -1309,4 +1346,34 @@ div.iconFooterInner {
     .landingImage {
         height: 50vh;
     }
+}
+
+.contact-intro-text {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.section-heading-center {
+    text-align: center;
+    margin: 0;
+}
+
+.repertoire-intro-text {
+    text-align: center;
+}
+
+.program-intro-text {
+    text-align: center;
+}
+
+.program-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.program-table {
+    width: 100%;
+    max-height: 100%;
+    margin: auto;
 }

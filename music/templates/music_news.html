@@ -4,7 +4,7 @@
 {% block page_content %}
 <div class="flexContainer newsPage">
     <div class="flexItem newsPageText"> 
-		<h2 style="text-align: center; margin: 0;">Upcoming Performances</h2>       
+		<h2 class="section-heading-center">Upcoming Performances</h2>       
         {% if concerts %}
         <div class="concerts-container">
             {% for c in concerts %}
@@ -36,9 +36,9 @@
             {% endfor %}
         </div>
         {% else %}
-        <div style="text-align: center; padding: 3rem; background: var(--light-purple); border-radius: var(--border-radius); margin: 2rem 0;">
-            <h3 style="color: var(--dark-purple); margin-bottom: 1rem;">No Upcoming Concerts</h3>
-            <p style="color: var(--text-light);">Check back soon for new performance dates!</p>
+        <div class="no-concerts-message">
+            <h3>No Upcoming Concerts</h3>
+            <p>Check back soon for new performance dates!</p>
         </div>
         {% endif %}
     </div>
