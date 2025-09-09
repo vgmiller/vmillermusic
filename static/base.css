@@ -284,23 +284,6 @@ div.siteContainer {
     box-shadow: 0 20px 40px var(--shadow-light);
 }
 
-.homepageCenter {
-    width: 50%;
-    margin: 10% auto;
-    background-color: rgba(255, 255, 255, 0.70);
-    padding: 5px;
-}
-
-.homepageDock {
-    display: flex;
-    text-align: center;
-}
-
-.homepageDockEl {
-    flex: 1;
-    padding: 5px;
-}
-
 .flexContainer {
     display: flex;
     gap: 3rem;
@@ -802,12 +785,6 @@ img {
     border-style: none;
 }
 
-.card-img-top {
-    width: 100%;
-    border-top-left-radius: calc(.25rem - 1px);
-    border-top-right-radius: calc(.25rem - 1px);
-}
-
 img.halfPagePicture {
     width: 90%;
     object-fit: contain;
@@ -1106,15 +1083,6 @@ div.iconFooterInner {
     padding: 5px;
 }
 
-div.iconFooter {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 10 auto;
-    text-align: center;
-}
-
 
 /* Color Classes */
 
@@ -1177,9 +1145,6 @@ div.iconFooter {
 }
 
 @media only screen and (max-width: 1200px) {
-    .siteContainerInner {
-        width: 90% !important;
-    }
     iframe.youtubeIframe {
         width: 400;
         height: 225;
@@ -1209,9 +1174,6 @@ div.iconFooter {
     }
     .flexContainer {
         display: block !important;
-    }
-    .siteContainerInner {
-        width: 98% !important;
     }
     .repContainer {
         column-count: 1 !important;
@@ -1290,27 +1252,6 @@ div.iconFooter {
     }
     .video-info h4 {
         font-size: 1.2rem;
-    }
-}
-
-@media only screen and (max-width: 720px) {
-    .homepageCenter {
-        width: 80%;
-    }
-    .homepageDock {
-        display: block;
-        text-align: center;
-    }
-    .homepageDockEl {
-        padding: 5px;
-    }
-    div.iconFooter {
-        position: relative;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin: 10 auto;
-        text-align: center;
     }
 }
 
