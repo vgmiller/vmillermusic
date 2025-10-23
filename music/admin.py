@@ -101,7 +101,9 @@ class ConcertAdmin(admin.ModelAdmin):
     list_display = (
         "date",
         "get_ensembleName",
+        "programNote",
     )
+    ordering = ["-date"]
 
     def get_ensembleName(self, obj):
         return obj.ensemble.name

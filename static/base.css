@@ -580,6 +580,12 @@ div.flexItem {
     text-decoration: underline;
 }
 
+.concert-notes {
+    font-size: small;
+    color: var(--dark-purple);
+    font-style: oblique;
+}
+
 .info-cards {
     display: flex;
     flex-direction: column;
