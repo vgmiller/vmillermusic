@@ -22,7 +22,11 @@
                         </a>
                     </div>
                     <div class="concert-venue">
+                        {% if c.venue.mapLink%}
                         <a href="{{ c.venue.mapLink }}" target="_blank" rel="noopener">{{ c.venue.name }}</a>
+                        {% else %}
+                        <p>{{c.venue.name}}</p>
+                        {% endif %}
                     </div>
                     {% if c.programNote %}
                     <div class="concert-notes">

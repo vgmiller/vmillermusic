@@ -61,4 +61,4 @@ class Ensemble(models.Model):
 class Venue(models.Model):
     name = models.CharField(max_length=255, blank=False, null=False)
     shortLocation = models.CharField(max_length=255, blank=False, null=False)
-    mapLink = models.TextField(null=False, blank=False)
+    mapLink = models.TextField(null=True, blank=True)
