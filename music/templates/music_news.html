@@ -24,6 +24,11 @@
                     <div class="concert-venue">
                         <a href="{{ c.venue.mapLink }}" target="_blank" rel="noopener">{{ c.venue.name }}</a>
                     </div>
+                    {% if c.programNote %}
+                    <div class="concert-notes">
+                        <p>{{ c.programNote }}</p>
+                    </div>
+                    {% endif %}
                     {% if c.ticketLink %}
                     <div class="concert-tickets">
                         <a href="{{ c.ticketLink }}" target="_blank" rel="noopener" class="ticket-link">

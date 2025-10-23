@@ -49,6 +49,7 @@ class Concert(models.Model):
     ensemble = models.ForeignKey("Ensemble", related_name="concerts", on_delete=models.CASCADE)
     venue = models.ForeignKey("Venue", related_name="concerts", on_delete=models.CASCADE)
     ticketLink = models.TextField(null=True, blank=True)
+    programNote = models.TextField(null=True, blank=True)
 
 
 class Ensemble(models.Model):
